@@ -1,0 +1,13 @@
+<li *ngIf="post" [ngClass]="{'list-group-item': true,
+                'list-group-item-success': post.loveIts > 0,
+                'list-group-item-danger': post.loveIts < 0}">
+    <div>
+        <h4><strong>{{ post.title }} </strong><em class="pull-right"> {{ post.created_at | date : 'dd/MM/yyyy hh:mm a' }}</em></h4>
+        <p>{{ post.content }}</p>
+        <div class="btn-group">
+            <button class="btn btn-success" type="button" (click)="onIncrement()">love it</button>
+            <button class="btn btn-danger" type="button" (click)="onDecrement()">don't love it</button>
+        </div>
+        <button class="btn btn-danger pull-right" type="button" (click)="onDelete()">Supprimer post</button>
+    </div>
+</li>
